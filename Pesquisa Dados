@@ -1,3 +1,7 @@
+ 
+ 
+ //Aqui o usuário faz a pesquisa que deseja realizar (Radio Buttom) selecionando uma das cinco opções.
+ 
  private void txtpesquisar_TextChanged(object sender, EventArgs e)
         {
 
