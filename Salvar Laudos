@@ -1,0 +1,42 @@
+ public class Cadastro
+    {
+
+        conexao cn = new conexao();
+        SqlCommand cmd = new SqlCommand();
+
+        public Cadastro(String Laudo, String Laudodata,String Funcao, String Nome, String Estadocivil, String Idade, String Profissao, String Sexo, String Escolaridade, String CPF, String Dataavaliacao)
+        {
+
+            cmd.CommandText = "INSERT INTO banco(Laudo,Ano,Funcao,Nome,Estadocivil,Idade,Profissao,Genero,Escolaridade,CPF,Dataavaliacao) VALUES (@Laudo,@Ano,@Funcao,@Nome,@Estadocivil,@Idade,@Profissao,@Genero,@Escolaridade,@CPF,@Dataavaliacao)";
+
+            cmd.Parameters.AddWithValue("@Laudo", Laudo);
+            cmd.Parameters.AddWithValue("@Ano", Laudodata);
+            cmd.Parameters.AddWithValue("@Funcao", Funcao);
+            cmd.Parameters.AddWithValue("@Nome", Nome);
+            cmd.Parameters.AddWithValue("@Estadocivil", Estadocivil);
+            cmd.Parameters.AddWithValue("@Idade", Idade);
+            cmd.Parameters.AddWithValue("@Profissao", Profissao);
+            cmd.Parameters.AddWithValue("@Genero", Sexo);
+            cmd.Parameters.AddWithValue("@Escolaridade", Escolaridade);
+            cmd.Parameters.AddWithValue("@CPF", CPF);
+            cmd.Parameters.AddWithValue("@DataAvaliacao", Dataavaliacao);
+            try
+            {
+
+                cmd.Connection = cn.conectar();
+                cmd.ExecuteNonQuery();
+                cn.desconectar();
+                
+                MessageBox.Show("Salvo Com Sucesso!");
+
+            }
+
+            catch (SqlException e)
+            {
+                MessageBox.Show("Houve um erro" + e);
+            }
+
+        }
+
+        
+    }
