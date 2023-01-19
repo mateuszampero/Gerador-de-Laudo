@@ -1,0 +1,31 @@
+private void exportacao(DataGridView dt)
+        {
+
+                Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
+
+                try
+                {
+
+                    var excel = XcelApp.Application.Workbooks.Open(System.IO.Path.GetFullPath("RelatorioMensal.xlsx"));
+                    excel.SaveAs("RelatorioMensal0" + DateTime.Now.ToString("ddMMyyyyhhmm") + ".xlsx");
+
+                    for (int i = 0; i < dgvgrid.Rows.Count - 1; i++)
+                    {
+                        for (int j = 1; j < dgvgrid.Columns.Count; j++)
+                        {
+
+                            XcelApp.Cells[i + 2, j + 0] = dgvgrid.Rows[i].Cells[j].Value.ToString();
+                        }
+                    }
+
+                    XcelApp.Rows.AutoFit();
+                    XcelApp.Visible = true;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro : " + ex.Message);
+                    XcelApp.Quit();
+                }
+
+        }
