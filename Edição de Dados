@@ -1,0 +1,35 @@
+internal class Editadados
+    {
+
+        conexao cn = new conexao();
+        SqlCommand cmd = new SqlCommand();
+
+        public Editadadosgeral(String ID, String Laudo, String Laudodata, String Funcao, String Nome, String Estadocivil, String Idade, String Profissao, String Sexo, String Escolaridade, String CPF, String Dataavaliacao)
+        {
+
+            cmd.CommandText = "UPDATE tabelageral SET Laudo = '" + Laudo + "', Ano = '" + Laudodata + "',Funcao = '" + Funcao + "' "
+            + " ,Nome =  '" + Nome + "', Estadocivil = '" + Estadocivil + "', Idade = '" + Idade + "', Profissao = '" + Profissao + "' "
+            + " ,Genero = '" + Sexo + "', Escolaridade = '" + Escolaridade + "', CPF = '" + CPF + "', Dataavaliacao = '" + Dataavaliacao + "' "
+            + " WHERE id = @ID ";
+
+            cmd.Parameters.AddWithValue("@ID", ID);
+
+            try
+            {
+
+                cmd.Connection = cn.conectar();
+                cmd.ExecuteNonQuery();
+                cn.desconectar();
+
+                MessageBox.Show("Dados Editados Com Sucesso!");
+
+            }
+
+            catch (SqlException e)
+            {
+                MessageBox.Show("Houve um erro" + e);
+            }
+
+        }
+
+    }
