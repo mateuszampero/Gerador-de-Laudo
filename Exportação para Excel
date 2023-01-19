@@ -1,3 +1,7 @@
+
+
+//Aqui faço a exportação de um Datagridview (Banco de dados) para um arquivo excel já existente que está montado para o recebimento dos Dados.
+
 private void exportacao(DataGridView dt)
         {
 
