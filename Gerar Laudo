@@ -1,0 +1,10 @@
+ 
+ // Aqui faço o envio dos parâmetros preenchidos para um report viewer que coloca os dados em um relatório para ser impresso.  
+ 
+ private void button2_Click_1(object sender, EventArgs e)
+        {
+
+            Form3 impressao = new Form3(txtLaudo.Text, txtNome.Text, txtEstadocivil.Text, txtIdade.Text, txtProfissao.Text, txtSexo.Text, txtEscolaridade.Text, txtCPF.Text, dtDataavaliacao.Text, txtanolaudo.Text);
+            impressao.Show();
+
+        }
