@@ -1,0 +1,127 @@
+ private void txtpesquisar_TextChanged(object sender, EventArgs e)
+        {
+
+            if (rdnome.Checked)
+            {
+                try
+                {
+                    conexao cn = new conexao();
+                    SqlCommand cmd = new SqlCommand();
+
+                    cmd.CommandText = "SELECT id,Laudo,Ano,Funcao,Nome,Estadocivil,Idade,Profissao,Genero,Escolaridade,CPF,Dataavaliacao from banco WHERE Nome like '%" + txtpesquisar.Text + "%' ";
+
+                    cmd.Connection = cn.conectar();
+                    cmd.ExecuteNonQuery();
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    dgvGrid.DataSource = dt;
+                    cn.desconectar();
+                }
+                catch
+                {
+
+                }
+            }
+            if (rdcpf.Checked)
+            {
+
+                try
+                {
+                    conexao cn = new conexao();
+                    SqlCommand cmd = new SqlCommand();
+
+                    cmd.CommandText = "SELECT id,Laudo,Ano,Funcao,Nome,Estadocivil,Idade,Profissao,Genero,Escolaridade,CPF,Dataavaliacao from banco WHERE CPF like '%" + txtpesquisar.Text + "%' ";
+
+                    cmd.Connection = cn.conectar();
+                    cmd.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataTable dt = new DataTable();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    dgvGrid.DataSource = dt;
+                    cn.desconectar();
+                }
+                catch
+                {
+
+                }
+
+            }
+            if (rdrg.Checked)
+            {
+
+                try
+                {
+                    conexao cn = new conexao();
+                    SqlCommand cmd = new SqlCommand();
+
+                    cmd.CommandText = "SELECT id,Laudo,Ano,Funcao,Nome,Estadocivil,Idade,Profissao,Genero,Escolaridade,CPF,Dataavaliacao from banco WHERE RG like '%" + txtpesquisar.Text + "%' ";
+
+                    cmd.Connection = cn.conectar();
+                    cmd.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataTable dt = new DataTable();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    dgvGrid.DataSource = dt;
+                    cn.desconectar();
+                }
+                catch
+                {
+
+                }
+
+            }
+
+            if (rdprof.Checked)
+            {
+                try
+                {
+                    conexao cn = new conexao();
+                    SqlCommand cmd = new SqlCommand();
+
+                    cmd.CommandText = "SELECT id,Laudo,Ano,Funcao,Nome,Estadocivil,Idade,Profissao,Genero,Escolaridade,CPF,Dataavaliacao from banco WHERE Profissao like '%" + txtpesquisar.Text + "%' ";
+
+                    cmd.Connection = cn.conectar();
+                    cmd.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataTable dt = new DataTable();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    dgvGrid.DataSource = dt;
+                    cn.desconectar();
+                }
+                catch
+                {
+
+                }
+            }
+
+            if (rddespache.Checked)
+            {
+                try
+                {
+                    conexao cn = new conexao();
+                    SqlCommand cmd = new SqlCommand();
+
+                    cmd.CommandText = "SELECT id,Laudo,Ano,Funcao,Nome,Estadocivil,Idade,Profissao,Genero,Escolaridade,CPF,Dataavaliacao from banco WHERE Indicacao like '%" + txtpesquisar.Text + "%' ";
+
+                    cmd.Connection = cn.conectar();
+                    cmd.ExecuteNonQuery();
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    DataTable dt = new DataTable();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                    dgvGrid.DataSource = dt;
+                    cn.desconectar();
+                }
+                catch
+                {
+
+                }
+            }
+
+
+        }
