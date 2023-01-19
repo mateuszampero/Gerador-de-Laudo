@@ -1,3 +1,6 @@
+ 
+ //Com essas linhas de códigos consigo pesquisar se o cep realmente existe e se existir ele passa três parâmetros preenchendo com Rua , Bairro e Cidade.
+ 
  private void procurar()
         {
 
